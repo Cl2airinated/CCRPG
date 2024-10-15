@@ -27,9 +27,9 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		x=0;
 		y=0;
 		charList=setCharList();
-		for(Characters c: charList){
-			System.out.println(c);
-		}
+		// for(Characters c: charList){
+		// 	System.out.println(c);
+		// }
 		screen="start";
 		player=null;
 	}
@@ -37,9 +37,9 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 
     public ArrayList <Characters> setCharList(){
         ArrayList <Characters> temp = new ArrayList<>();
-		temp.add(new cookieuser1(100,100));
-		temp.add(new cookieuser2(100,100));
-		temp.add(new cookieuser3(100,100));
+		temp.add(new cookieuser1(100,200));
+		temp.add(new cookieuser2(200,200));
+		temp.add(new cookieuser3(300,200));
 		return temp;
     }
 
@@ -77,16 +77,20 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 	
 		g2d.setFont( new Font("Broadway", Font.BOLD, 50));
 		
-		g2d.drawString("Hello!" , x, y);
+		//g2d.drawString("Hello!" , x, y);
 		
-		drawScreens(g2d);
-	
+		//drawScreens(g2d);
+if(screen.equals("selection")){
+	drawSelectScreen(g2d);
+
+}
+	//drawStartScreen(g2d);
 		twoDgraph.drawImage(back, null, 0, 0);
 
 	}
 	public void drawStartScreen(Graphics g2d){
 	for(Characters c: charList){
-		System.out.println(c);
+		//System.out.println(c);
 		c.drawChar(g2d);
 	}
 	}
@@ -127,14 +131,16 @@ public class Game  extends JPanel implements Runnable, KeyListener, MouseListene
 		key= e.getKeyCode();
 		System.out.println(key);
 		
-		if (key==17){
+		if (key==32){
 			screen="selection";
-			player=charList.get(0);
+			
+		}
+			//player=charList.get(0);
 		}
 		
 		
 	
-	}
+	
 
 
 	//DO NOT DELETE

@@ -5,6 +5,7 @@ public class Characters {
 
     private int x,y,w,h, speed, health, dmg, stam, dx, dy;
     ImageIcon pic;
+    private Weapons weap;
 
     public Characters(){
         y=0;
@@ -20,7 +21,7 @@ public class Characters {
         pic= new ImageIcon();
     }
     
-    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p){
+    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap){
         x=x1;
         y=y1;
         width=w;
@@ -30,6 +31,11 @@ public class Characters {
         stam=st;
         pic=p;
         dx=0;
+        weap=weap;
+
+    }   
+    public Weapons getWeapon(){
+        return weap;
     }
 
     public int getX() {
@@ -126,6 +132,7 @@ public class Characters {
 
     public void drawChar(Graphics g2d){
         g2d.drawImage(pic.getImage(), x, y, w, h, null);
+
         
     }
 }
