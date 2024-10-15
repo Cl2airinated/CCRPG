@@ -109,6 +109,7 @@ if(screen.equals("selection")){
 	}
 
 	public void drawSelectScreen(Graphics g2d){
+		
 		player.drawChar(g2d);
 		g2d.drawString("You picked "+player.toString(),200,500);
 	}
@@ -133,6 +134,17 @@ if(screen.equals("selection")){
 		
 		if (key==32){
 			screen="selection";
+			player=charList.get(0);
+			
+		}
+		if(key==49){
+			screen="selection";
+			player=charList.get(1);
+
+		}
+		if(key==50){
+			screen="selection";
+			player=charList.get(1);
 			
 		}
 			//player=charList.get(0);
