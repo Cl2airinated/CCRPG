@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 
 public class cookieuser1 extends Characters{
@@ -6,11 +8,22 @@ public class cookieuser1 extends Characters{
     }
 
     public cookieuser1(int x, int y){
-        super(x,y, 50,50,10,5,5,1, new ImageIcon("C:\\Users\\student\\Downloads\\CCRPG-main\\CCRPG-main\\cookieuser1.png"), new gold());
-      //  super.getWeapon().setX(super.getX()+super.getW());
+        super(x,y, 50,50,10,5,5,1, new ImageIcon("/Users/clairebrowning/Downloads/CCRPG/src/cookieuser1.png"), new basic());
+        super.getWeapon().setX(super.getX()+super.getW());
+        super.setWeapons(setList());
     }
     public String toString(){
-        return "cookieuser1"+super.getHealth();
+         return "cookieuser1"+super.getHealth();
+        //return "cookieuser1";
 
+
+    }
+
+    public ArrayList <Weapons> setList(){
+        ArrayList <Weapons> temp= new ArrayList <Weapons> ();
+        temp.add(new gold());
+        temp.add(new basic());
+        temp.add(new wrath());
+        return temp;
     }
 }

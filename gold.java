@@ -1,12 +1,14 @@
+import javax.swing.ImageIcon;
+
 public class gold extends Weapons{
-        public gold(){
-            super();
-        }
-        public gold(int x, int y){
-            super(100,2,150);
-        }
-        public String tostring(){
-            return "gold";
-        }
+    public gold(){
+        super();
     }
+    public gold(int x, int y){
+        super(x,y,100,2,150, new ImageIcon("cookieuser2.png"));
+    }
+    public String tostring(){
+        return "gold";
+    }
+}
 

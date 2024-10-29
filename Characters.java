@@ -1,4 +1,6 @@
 import java.awt.Graphics;
+import java.util.ArrayList;
+
 import javax.swing.ImageIcon;
 
 public class Characters {
@@ -6,6 +8,7 @@ public class Characters {
     private int x,y,w,h, speed, health, dmg, stam, dx, dy;
     ImageIcon pic;
     private Weapons weap;
+    private ArrayList <Weapons> weaponList;
 
     public Characters(){
         y=0;
@@ -21,6 +24,7 @@ public class Characters {
         pic= new ImageIcon();
     }
     
+    
     public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap){
         x=x1;
         y=y1;
@@ -34,10 +38,25 @@ public class Characters {
         weap=weap;
 
     }   
+    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap, ArrayList <Weapons> list){
+        x=x1;
+        y=y1;
+        width=w;
+        height =h;
+        speed = sp;
+        dmg = dam;
+        stam=st;
+        pic=p;
+        dx=0;
+        weap=weap;
+        weaponList=list;
+    }
     public Weapons getWeapon(){
         return weap;
     }
-
+    public void setWeapons( ArrayList <Weapons> list ){
+        weaponList=list;
+    }
     public int getX() {
         return x;
     }
