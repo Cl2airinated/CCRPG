@@ -9,7 +9,7 @@ public class stockbroker extends enemy {
         return "stockbroker";
     }
     public stockbroker(int x, int y){
-    super(x,y,50,50,2,172,2000,5,new ImageIcon(), new gold());
+        super(x,y,500,500,2,172,2000,5, new ImageIcon("assets/stockbroker.png"),new gold());
     }
 
 }

@@ -11,6 +11,7 @@ public class Main extends JFrame{
 		setSize(WIDTH, HEIGHT);
 		Game play = new Game();
 		((Component) play).setFocusable(true);
+		//misha was here
 		
 		Color RoyalBlue = new Color(255,255,255);
 		

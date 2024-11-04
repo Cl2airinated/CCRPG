@@ -28,14 +28,15 @@ public class Characters {
     public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap){
         x=x1;
         y=y1;
-        width=w;
-        height =h;
+        w=width;
+        h =height;
         speed = sp;
         dmg = dam;
         stam=st;
         pic=p;
         dx=0;
-        weap=weap;
+        this.weap=weap;
+        System.out.println(width + " " + height);
 
     }   
     public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap, ArrayList <Weapons> list){
@@ -48,7 +49,7 @@ public class Characters {
         stam=st;
         pic=p;
         dx=0;
-        weap=weap;
+        this.weap=weap;
         weaponList=list;
     }
     public Weapons getWeapon(){
