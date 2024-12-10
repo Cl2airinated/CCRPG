@@ -8,7 +8,7 @@ public class cookieuser1 extends Characters{
     }
 
     public cookieuser1(int x, int y){
-        super(x,y, 50,50,10,100,5,1, new ImageIcon("assets/cookieuser1.png"), new basic());
+        super(x,y, 50,50,10,100,5,1, new ImageIcon("CCRPG-main\\cookieuser1.png"), new basic());
         super.getWeapon().setX(super.getX()+super.getW());
         super.setWeapons(setList());
     }

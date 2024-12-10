@@ -59,7 +59,7 @@ public class Game extends JPanel implements Runnable, KeyListener, MouseListener
         screenHeight = screenSize.height;
         screenWidth = screenSize.width;
         try {
-            backgroundImage = ImageIO.read(new File("/Users/clairebrowning/Downloads/CCRPG/src/background.png"));
+            backgroundImage = ImageIO.read(new File("CCRPG-main\\background.png"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -140,28 +140,28 @@ public void writeToFile(Graphics g2d){
         return temp;
 
     }
-    public ArrayList<range> setCookieList(){
-        ArrayList<range> temp= new ArrayList<range>();
-        temp.add(new cookiepow(100,100));
-        temp.add(new cookiepow(100,100));
-        temp.add(new cookiepow(100,100));
-        temp.add(new cookiepow(100,100));
+    // public ArrayList<range> setCookieList(){
+    //     ArrayList<range> temp= new ArrayList<range>();
+    //     temp.add(new cookiepow(100,100));
+    //     temp.add(new cookiepow(100,100));
+    //     temp.add(new cookiepow(100,100));
+    //     temp.add(new cookiepow(100,100));
 
-        return CookieList;
+    //     return CookieList;
         
-    }
+    // }
 
     public void drawStartScreen(Graphics g2d) {
         g2d.drawString(words, 400, 600);
         enem = true;
 
-       Color c = new Color(0,0,0, 200);
-       g2d.setColor(c);
-       g2d.fillRoundRect(x, y, 200, 200, 35, 35);
-       c = new Color(255,255,255);
-       g2d.setColor(c);
-       ((Graphics2D) g2d).setStroke(new BasicStroke(5));// defineds the width of outlines of graphcs rendered by g2d
-       g2d.drawRoundRect(x+5, y+5, 200-10, 200-10, 25, 25);
+    //    Color c = new Color(0,0,0, 200);
+    //    g2d.setColor(c);
+    //    g2d.fillRoundRect(x, y, 200, 200, 35, 35);
+    //    c = new Color(255,255,255);
+    //    g2d.setColor(c);
+    //    ((Graphics2D) g2d).setStroke(new BasicStroke(5));// defineds the width of outlines of graphcs rendered by g2d
+    //    g2d.drawRoundRect(x+5, y+5, 200-10, 200-10, 25, 25);
        g2d.drawString("Choose your player using 1,2,3 or 4", screenWidth/2-100, screenHeight-100);
 
         for (int i = 0; i < charList.size(); i++) {
@@ -242,8 +242,8 @@ public void writeToFile(Graphics g2d){
         g2d.setColor(Color.RED);
     g2d.fillRect(50, 70, 200, 20);  // Draw health bar background
     g2d.setColor(Color.GREEN);
-    g2d.fillRect(50, 70, (int) (player.getHealth() * 2), 20);
-        player.move(0, 0, screenWidth, screenHeight);        
+   // g2d.fillRect(50, 70, (int) (player.getHealth() * 2), 20);
+    //    player.move(0, 0, screenWidth, screenHeight);        
         
 
     }
@@ -311,57 +311,58 @@ public void writeToFile(Graphics g2d){
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int code = e.getKeyCode();
+        key = e.getKeyCode();
         System.out.println(key);
 
-        if (code == KeyEvent.VK_ENTER && screen == "weaponSelect") {
+        if (key == 10 && screen == "start") {
             screen = "selection";
 
         }
 
-        if (code == KeyEvent.VK_1 && screen == "selection") {
+        if (key == 49 && screen == "selection") {
             screen = "selection";
             player = charList.get(0);
-        } else if (code == KeyEvent.VK_2 && screen == "selection") {
+        } else if (key == 50 && screen == "selection") {
             screen = "selection";
 
             player = charList.get(1);
-        } else if (code == KeyEvent.VK_3 && screen == "selection") {
+        } else if (key == 51 && screen == "selection") {
             screen = "selection";
             player = charList.get(2); // Corrected to get the third character
         }
-        if (code == KeyEvent.VK_ENTER && screen == "selection") {
+        if (key == 10 && screen == "selection") {
             screen = "weaponSelect";
 
         }
-        if (code == KeyEvent.VK_1 && screen == "weaponSelect") {
+        if (key == 49 && screen == "weaponSelect") {
             weapon = weaponList.get(0);
-        } else if (code == KeyEvent.VK_2 && screen == "weaponSelect") {
+        } else if (key == 50 && screen == "weaponSelect") {
             screen = "weaponSelect";
 
             weapon = weaponList.get(1);
-        } else if (code == KeyEvent.VK_2 && screen == "weaponSelect") {
+        } else if (key == 51 && screen == "weaponSelect") {
             screen = "weaponSelect";
             weapon = weaponList.get(2);
         }
-        if(code == KeyEvent.VK_ENTER && screen == "weaponSelect") {
+        // if(key == 10 && screen == "weaponSelect") {
 
-            screen = "gameScreen";
+        //     screen = "gameScreen";
 
-        }
-        if(code == KeyEvent.VK_S){
+        // }
+        if(key == KeyEvent.VK_S){
             player.setDy(-1);
+            System.out.println("this is working");
         }
          
-        if(code == KeyEvent.VK_D){
+        if(key == KeyEvent.VK_D){
             player.setDx(1);
         }
        // else player.setDx(0);
-        if(code == KeyEvent.VK_W){
+        if(key == KeyEvent.VK_W){
             player.setDy(1);
         }
        // else player.setDy(0);
-        if(code == KeyEvent.VK_A){
+        if(key == KeyEvent.VK_A){
             player.setDx(-1);
         }
        // else player.setDx(0);
@@ -393,21 +394,21 @@ public void writeToFile(Graphics g2d){
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int code = e.getKeyCode();
+        key = e.getKeyCode();
 
-        if(code == KeyEvent.VK_W){
+        if(key == KeyEvent.VK_W){
             player.setDy(0);
         }
          
-        if(code == KeyEvent.VK_A){
+        if(key == KeyEvent.VK_A){
             player.setDx(0);
         }
        // else player.setDx(0);
-        if(code == KeyEvent.VK_S){
+        if(key == KeyEvent.VK_S){
             player.setDy(0);
         }
        // else player.setDy(0);
-        if(code == KeyEvent.VK_D){
+        if(key == KeyEvent.VK_D){
             player.setDx(0);
         }
        // else player.setDx(0);
