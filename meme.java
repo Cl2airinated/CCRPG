@@ -6,7 +6,7 @@ public class meme extends Weapons {
 	}
 
 	public meme(int x, int y, int w, int h, int dam, int dur, int dp, ImageIcon pic) {
-		super(x, y, w, h, dam, dur, dp, pic);
+		super(x, y, w, h, dam, dur, dp,  dp, dp, pic);
 	}
 
 }

@@ -5,10 +5,12 @@ import javax.swing.ImageIcon;
 
 public class Characters {
 
-    private int x,y,w,h, speed, health, dmg, stam, dx, dy;
+    private int x,y,w,h, speed, health, damage, stamina, dx, dy;
     ImageIcon pic;
     private Weapons weap;
     private ArrayList <Weapons> weaponList;
+   // public abstract void tick();
+
 
     public Characters(){
         y=0;
@@ -17,38 +19,41 @@ public class Characters {
         h=0;
         speed=0;
         health=0;
-        stam=0;
-        dmg=0;
+        stamina=0;
+        damage=0;
         dx=0;
         dy=0;
         pic= new ImageIcon();
     }
     
     
-    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap){
+    public Characters(int x1, int y1, int width, int height, int speed, int health, int damage, int stamina, ImageIcon p, Weapons weap){
         x=x1;
         y=y1;
         w=width;
         h =height;
-        speed = sp;
-        dmg = dam;
-        stam=st;
+        this.health=health;
+        this.speed = speed;
+        this.damage = damage;
+        this.stamina=stamina;
         pic=p;
         dx=0;
+        dy=0;
         this.weap=weap;
         System.out.println(width + " " + height);
 
     }   
-    public Characters(int x1, int y1, int width, int height, int sp, int hea, int dam, int st, ImageIcon p, Weapons weap, ArrayList <Weapons> list){
+    public Characters(int x1, int y1, int width, int height, int speed, int health, int damage, int stamina, ImageIcon p, Weapons weap, ArrayList <Weapons> list){
         x=x1;
         y=y1;
         width=w;
         height =h;
-        speed = sp;
-        dmg = dam;
-        stam=st;
+        this.speed = speed;
+        this.damage = damage;
+        this.stamina=stamina;
         pic=p;
         dx=0;
+        dy=0;
         this.weap=weap;
         weaponList=list;
     }
@@ -106,20 +111,20 @@ public class Characters {
         this.health = health;
     }
 
-    public int getDmg() {
-        return dmg;
+    public int getDamage() {
+        return damage;
     }
 
-    public void setDmg(int dmg) {
-        this.dmg = dmg;
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 
-    public int getStam() {
-        return stam;
+    public int getStamina() {
+        return stamina;
     }
 
-    public void setStam(int stam) {
-        this.stam = stam;
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 
     public int getDx() {
@@ -145,6 +150,7 @@ public class Characters {
     public void setPic(ImageIcon pic) {
         this.pic = pic;
     }
+    
 
     public String toString(){
         return "HAVEN'T SET TOSTRING YET";
@@ -154,5 +160,22 @@ public class Characters {
         g2d.drawImage(pic.getImage(), x, y, w, h, null);
 
         
+    }
+    public void move(int screenW, int screenH, int maxW, int maxH) {
+        //fix move method
+        x+=dx;
+        if (x+w>maxW) {
+            x=maxW-w;
+        }
+        else if (x<screenW){
+            x=screenW;
+        }
+
+        y+=dy;
+        //
+        if (y+h>maxH)
+            y=maxH-h;
+        else if (y<screenH-(h/2))
+            y=screenH-(h/2);
     }
 }

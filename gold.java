@@ -5,7 +5,7 @@ public class gold extends Weapons{
         super();
     }
     public gold(int x, int y){
-        super(x,y,100,100,100,2,150, new ImageIcon("assets/cookieuser2.png"));
+        super(x,y,100,100,100,2,150,10,100, new ImageIcon("assets/cookieuser2.png"));
     }
     public String tostring(){
         return "gold";
